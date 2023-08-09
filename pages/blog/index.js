@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const blog = ({ data,data3}) => {
+const Blog = ({ data,data3}) => {
     const commentList  = [];
      data.slice(0, 50).map((curElem2) => {
 
@@ -40,19 +40,19 @@ const blog = ({ data,data3}) => {
     });
 console.log(commentList);
 
-    const [comments, setComments] = useState(commentList);
-    const [searchVal, setSearchVal] = useState("");
+    const [Comments, setComments] = useState(commentList);
+    const [SearchVal, setSearchVal] = useState("");
 
     function handleSearchClick () {
-        if (searchVal === "") {
+        if (SearchVal === "") {
             setComments(commentList);
-            //console.log(searchVal);
+            //console.log(SearchVal);
             //console.log('all');
             return;
         }
         const filterBySearch = commentList.filter((item) => {
             if (item.body.toLowerCase()
-                .includes(searchVal.toLowerCase())) {
+                .includes(SearchVal.toLowerCase())) {
                 // console.log(item);
                 // console.log('search');
                 return item;
@@ -70,7 +70,7 @@ console.log(commentList);
 
 </div>
 
-      { comments.slice(0, 50).map((curElem,i) =>
+      { Comments.slice(0, 50).map((curElem,i) =>
 
       {
 //console.log(data3[i]);
@@ -105,4 +105,4 @@ console.log(commentList);
   );
 };
 
-export default blog;
+export default Blog;
